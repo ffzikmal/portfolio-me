@@ -69,22 +69,8 @@
     </div>
 
     <!-- Profile picture -->
-    <div class="hero-pic-wrap" id="picWrap">
-      <div class="hero-pic-placeholder" id="picPlaceholder" onclick="document.getElementById('picUpload').click()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-        <span>click to add photo</span>
-      </div>
-      <img class="hero-pic" id="heroImg" src="" alt="Ikmal" style="display:none;">
-      <button class="pic-change-btn" onclick="document.getElementById('picUpload').click()" aria-label="Change photo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-        </svg>
-      </button>
-      <input type="file" id="picUpload" accept="image/*">
+    <div class="hero-pic-wrap">
+      <img class="hero-pic" src="assets/images/profile.jpg" alt="Ikmal">
     </div>
 
   </div>
@@ -186,60 +172,18 @@
         <div class="proj-carousel-track" id="track0">
 
           <!-- Slide 1 -->
-          <div class="proj-slide" data-slot="0">
-            <div class="proj-img-placeholder" onclick="document.getElementById('projImg0_0').click()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <span>image 1 of 3</span>
-            </div>
-            <img class="proj-img-uploaded" id="projImgPreview0_0" alt="Project screenshot 1">
-            <button class="proj-img-edit" onclick="document.getElementById('projImg0_0').click()" aria-label="Change image">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-              </svg>
-            </button>
-            <input type="file" id="projImg0_0" class="proj-img-input" accept="image/*" data-slot="0" data-preview="projImgPreview0_0" data-key="projImg0_0">
+          <div class="proj-slide">
+            <img class="proj-img-uploaded" src="assets/images/homelab-1.jpg" alt="Home Lab screenshot 1">
           </div>
 
           <!-- Slide 2 -->
-          <div class="proj-slide" data-slot="1">
-            <div class="proj-img-placeholder" onclick="document.getElementById('projImg0_1').click()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <span>image 2 of 3</span>
-            </div>
-            <img class="proj-img-uploaded" id="projImgPreview0_1" alt="Project screenshot 2">
-            <button class="proj-img-edit" onclick="document.getElementById('projImg0_1').click()" aria-label="Change image">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-              </svg>
-            </button>
-            <input type="file" id="projImg0_1" class="proj-img-input" accept="image/*" data-slot="1" data-preview="projImgPreview0_1" data-key="projImg0_1">
+          <div class="proj-slide">
+            <img class="proj-img-uploaded" src="assets/images/homelab-2.jpg" alt="Home Lab screenshot 2">
           </div>
 
           <!-- Slide 3 -->
-          <div class="proj-slide" data-slot="2">
-            <div class="proj-img-placeholder" onclick="document.getElementById('projImg0_2').click()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <span>image 3 of 3</span>
-            </div>
-            <img class="proj-img-uploaded" id="projImgPreview0_2" alt="Project screenshot 3">
-            <button class="proj-img-edit" onclick="document.getElementById('projImg0_2').click()" aria-label="Change image">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-              </svg>
-            </button>
-            <input type="file" id="projImg0_2" class="proj-img-input" accept="image/*" data-slot="2" data-preview="projImgPreview0_2" data-key="projImg0_2">
+          <div class="proj-slide">
+            <img class="proj-img-uploaded" src="assets/images/homelab-3.jpg" alt="Home Lab screenshot 3">
           </div>
 
         </div>
@@ -385,30 +329,6 @@ function closeMobile() {
   mobileMenu.classList.remove('open');
 }
 
-/* ── PROFILE PICTURE ────────────────────── */
-const picUpload = document.getElementById('picUpload');
-const heroImg   = document.getElementById('heroImg');
-const picWrap   = document.getElementById('picWrap');
-
-const savedPhoto = localStorage.getItem('profilePhoto');
-if (savedPhoto) {
-  heroImg.src = savedPhoto;
-  heroImg.style.display = 'block';
-  picWrap.classList.add('has-photo');
-}
-picUpload.addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    heroImg.src = ev.target.result;
-    heroImg.style.display = 'block';
-    picWrap.classList.add('has-photo');
-    try { localStorage.setItem('profilePhoto', ev.target.result); } catch {}
-  };
-  reader.readAsDataURL(file);
-});
-
 /* ── PROJECT CAROUSEL ────────────────────── */
 let currentSlide = 0;
 const totalSlides = 3;
@@ -428,35 +348,6 @@ function carouselGoTo(index) {
   currentSlide = index;
   carouselUpdate();
 }
-
-/* ── PROJECT IMAGES (per-slot upload) ───── */
-document.querySelectorAll('.proj-img-input').forEach(input => {
-  const storageKey = input.dataset.key;
-  const slide      = input.closest('.proj-slide');
-  const preview    = document.getElementById(input.dataset.preview);
-
-  // Restore saved image
-  const saved = localStorage.getItem(storageKey);
-  if (saved) {
-    preview.src = saved;
-    preview.classList.add('visible');
-    slide.classList.add('has-img');
-  }
-
-  input.addEventListener('change', e => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      preview.src = ev.target.result;
-      preview.classList.add('visible');
-      slide.classList.add('has-img');
-      try { localStorage.setItem(storageKey, ev.target.result); } catch {}
-    };
-    reader.readAsDataURL(file);
-  });
-});
-
 
 /* ── SCROLL REVEAL + SKILL BARS ─────────── */
 const observer = new IntersectionObserver(entries => {
