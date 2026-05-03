@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ikmal — Level 1 Networking & Helpdesk</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d6fa3'/><text x='16' y='22' font-family='monospace' font-size='14' font-weight='600' text-anchor='middle' fill='white'>IK</text></svg>">
 </head>
 <body>
 
@@ -16,6 +17,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certs</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#resume">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -46,6 +48,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about"    onclick="closeMobile()">About</a>
   <a href="#skills"   onclick="closeMobile()">Skills</a>
+  <a href="#certs"    onclick="closeMobile()">Certs</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#resume"   onclick="closeMobile()">Resume</a>
   <a href="#contact"  onclick="closeMobile()">Contact</a>
@@ -59,6 +62,10 @@
 
     <!-- Text -->
     <div class="hero-content">
+      <div class="available-badge">
+        <span class="available-dot"></span>
+        Available for hire
+      </div>
       <p class="hero-tag">Level 1 Networking &amp; Helpdesk</p>
       <h1 class="hero-name">Hi, I'm <strong>Ikmal</strong>.
       <p class="hero-sub">Solving technical problems, supporting users, and maintaining reliable IT infrastructure.</p>
@@ -156,6 +163,22 @@
       <div class="skill-name">Proxmox</div>
       <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CERTIFICATIONS
+════════════════════════════════════════ -->
+<section id="certs">
+  <div class="section-label">Certifications</div>
+  <div class="certs-grid reveal">
+
+    <div class="cert-card">
+      <div class="cert-issuer">Amazon Web Services</div>
+      <div class="cert-name">AWS Certified Cloud Practitioner</div>
+      <span class="cert-badge in-progress">In progress</span>
+    </div>
+
   </div>
 </section>
 
@@ -269,10 +292,17 @@
     <h2>Let's <em>work together</em>.</h2>
     <p>Open to IT support roles, networking, and junior technician positions. Feel free to reach out through any of the channels below.</p>
     <div class="contact-links">
-      <a href="mailto:ffzikmal12@gmail.com" class="contact-link">
-        <div class="contact-link-icon">✉</div>
-        ffzikmal12@gmail.com
-      </a>
+      <div class="contact-row">
+        <a href="mailto:ffzikmal12@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          ffzikmal12@gmail.com
+        </a>
+        <button class="copy-btn" data-copy="ffzikmal12@gmail.com" aria-label="Copy email address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
+      </div>
       <a href="https://linkedin.com/in/ikmalffz12" class="contact-link" target="_blank">
         <div class="contact-link-icon">in</div>
         linkedin.com/in/ikmalffz12
@@ -361,6 +391,19 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── COPY TO CLIPBOARD ──────────────────────── */
+const COPY_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+const CHECK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>`;
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = CHECK_ICON;
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = COPY_ICON; }, 2000);
+    });
+  });
+});
 
 /* ── ACTIVE NAV ─────────────────────────── */
 const sections = document.querySelectorAll('section[id]');
