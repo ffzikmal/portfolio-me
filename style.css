@@ -434,6 +434,14 @@ section { padding: 6rem 2rem; max-width: 820px; margin: 0 auto; }
   transition:     background 0.2s;
 }
 
+.cert-badge-img {
+  width:         80px;
+  height:        80px;
+  object-fit:    contain;
+  margin-bottom: 0.5rem;
+  align-self:    flex-start;
+}
+
 .cert-issuer {
   font-family:    var(--mono);
   font-size:      11px;
