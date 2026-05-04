@@ -66,12 +66,20 @@
         <span class="available-dot"></span>
         Available for hire
       </div>
-      <p class="hero-tag">Level 1 Networking &amp; Helpdesk</p>
-      <h1 class="hero-name">Hi, I'm <strong>Ikmal</strong>.
-      <p class="hero-sub">Solving technical problems, supporting users, and maintaining reliable IT infrastructure.</p>
+      <p class="hero-tag">IT Support · Networking · Cloud</p>
+      <h1 class="hero-name">Hi, I'm <strong>Ikmal</strong>.</h1>
+      <p class="hero-sub">I keep networks running, users unblocked, and IT infrastructure solid — currently advancing toward CCNA.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">View my work</a>
         <a href="#resume"   class="btn btn-outline">Download CV</a>
+      </div>
+      <div class="hero-stack">
+        <span>Windows</span>
+        <span>Linux</span>
+        <span>TCP/IP</span>
+        <span>Proxmox</span>
+        <span>AWS</span>
+        <span>Docker</span>
       </div>
     </div>
 
@@ -121,47 +129,47 @@
     <div class="skill-cell">
       <div class="skill-category">Hardware</div>
       <div class="skill-name">PC Assembly &amp; Repair</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+      <div class="skill-level" data-level="5"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">OS</div>
       <div class="skill-name">Windows 10 / 11</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+      <div class="skill-level" data-level="5"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">OS</div>
       <div class="skill-name">Linux (Ubuntu)</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div>
+      <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">Networking</div>
       <div class="skill-name">TCP/IP &amp; DNS</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="50"></div></div>
+      <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">Networking</div>
       <div class="skill-name">Router / Switch Config</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="50"></div></div>
+      <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">Software</div>
       <div class="skill-name">Microsoft 365</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+      <div class="skill-level" data-level="4"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">Support</div>
       <div class="skill-name">Helpdesk / Ticketing</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+      <div class="skill-level" data-level="4"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">Cloud</div>
       <div class="skill-name">AWS Fundamentals &amp; Services</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div>
+      <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="skill-cell">
       <div class="skill-category">Virtualisation</div>
       <div class="skill-name">Proxmox</div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div>
+      <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
   </div>
 </section>
@@ -178,6 +186,13 @@
       <div class="cert-issuer">Amazon Web Services</div>
       <div class="cert-name">AWS Certified Cloud Practitioner</div>
       <span class="cert-badge in-progress">In progress</span>
+    </div>
+
+    <div class="cert-card">
+      <img class="cert-badge-img" src="assets/images/ccna-badge.png" alt="Cisco CCNA badge">
+      <div class="cert-issuer">Cisco</div>
+      <div class="cert-name">CCNA — Cisco Certified Network Associate</div>
+      <span class="cert-badge planned">Planned</span>
     </div>
 
   </div>
@@ -365,28 +380,53 @@ let currentSlide = 0;
 const totalSlides = 3;
 const track = document.getElementById('track0');
 const dots  = document.querySelectorAll('.carousel-dot');
+let carouselTimer;
 
 function carouselUpdate() {
   if (!track) return;
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
   dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
 }
+function startCarousel() {
+  carouselTimer = setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    carouselUpdate();
+  }, 4000);
+}
+function stopCarousel() { clearInterval(carouselTimer); }
+
 function carouselGo(direction) {
+  stopCarousel();
   currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
   carouselUpdate();
+  startCarousel();
 }
 function carouselGoTo(index) {
+  stopCarousel();
   currentSlide = index;
   carouselUpdate();
+  startCarousel();
 }
 
-/* ── SCROLL REVEAL + SKILL BARS ─────────── */
+const carouselEl = document.getElementById('carousel0');
+if (carouselEl) {
+  carouselEl.addEventListener('mouseenter', stopCarousel);
+  carouselEl.addEventListener('mouseleave', startCarousel);
+}
+startCarousel();
+
+/* ── SCROLL REVEAL + SKILL DOTS ─────────── */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
-      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
+      e.target.querySelectorAll('.skill-level').forEach(level => {
+        const n = parseInt(level.dataset.level);
+        level.querySelectorAll('span').forEach((dot, i) => {
+          setTimeout(() => {
+            if (i < n) dot.classList.add('filled');
+          }, i * 80);
+        });
       });
     }
   });
