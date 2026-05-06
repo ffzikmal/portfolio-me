@@ -693,7 +693,7 @@ section { padding: 6rem 2rem; max-width: 820px; margin: 0 auto; }
   color:          var(--muted);
   letter-spacing: 0.04em;
 }
-.project-arrow { font-size: 18px; color: var(--muted); transition: transform 0.2s, color 0.2s; padding-top: 4px; }
+.project-arrow { font-size: 18px; color: var(--muted); transition: transform 0.2s, color 0.2s; padding-top: 4px; text-decoration: none; }
 .project-card:hover .project-arrow { transform: translate(3px,-3px); color: var(--accent); }
 
 /* ── RESUME / DOWNLOAD ───────────────────────── */
